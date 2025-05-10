@@ -2,7 +2,7 @@
 
 import { sanitizeText } from "@/services/blog/sanitize";
 import "@/styles/blog/article.css";
-import { Article } from "@/types/article/article";
+import type { Article } from "@/types/article/article";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 export default function ArticleContent({ slug }: { slug: string }) {
@@ -50,6 +50,10 @@ export default function ArticleContent({ slug }: { slug: string }) {
   const article = articles[0];
   if (!article) return <div>Article non trouvé</div>;
 
+  function parse(rendered: string): import("react").ReactNode {
+    return <div dangerouslySetInnerHTML={{ __html: rendered }} />;
+  }
+
   return (
     <article className="article-container">
       {article.featured_image && (
@@ -60,11 +64,7 @@ export default function ArticleContent({ slug }: { slug: string }) {
           height={400}
         />
       )}
-      <h1>{article.title.rendered}</h1>
-      <div
-        className="article-content"
-        dangerouslySetInnerHTML={{ __html: article.content.rendered }}
-      />
+      <div className="article-content">{parse(article.content.rendered)}</div>
     </article>
   );
 }

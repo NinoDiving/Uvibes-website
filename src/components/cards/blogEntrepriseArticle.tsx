@@ -3,7 +3,7 @@ import { fetchPostsByTagSlug } from "@/services/blog/article";
 import { getExcerpt } from "@/services/blog/getExcerpt";
 import { sanitizeText } from "@/services/blog/sanitize";
 import "@/styles/cards/blogArticleCard.css";
-import { Article } from "@/types/article/article";
+import type { Article } from "@/types/article/article";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";

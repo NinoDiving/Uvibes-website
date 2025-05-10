@@ -5,4 +5,5 @@ export type TeamProps = {
   alt: string;
   name: string;
   position: string;
+  team: string;
 };
