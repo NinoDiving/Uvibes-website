@@ -56,7 +56,7 @@ export default function Menu() {
 
       <StyledBottomNavigation
         style={{
-          transform: isActive ? "translateX(0px)" : "translateX(100px)",
+          transform: isActive ? "translateX(0px)" : "translateX(1000px)",
           opacity: isActive ? 1 : 0,
           transition: "transform 0.3s ease-in-out, opacity 0.3s ease-in-out",
         }}
