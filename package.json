@@ -27,7 +27,7 @@
     "html-react-parser": "^5.2.4",
     "js-cookie": "^3.0.5",
     "lucide-react": "^0.487.0",
-    "next": "^15.3.0",
+    "next": "^15.4.7",
     "nodemailer": "^7.0.3",
     "react": "^19.0.0",
     "react-calendly": "^4.3.1",
