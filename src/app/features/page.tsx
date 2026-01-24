@@ -7,6 +7,7 @@ import FunctOrganisation from "@/components/funct/functOrganisation";
 import FloatingMenu from "@/components/menu/Menu";
 import { AppointmentSection } from "@/components/section/appointmentSection";
 
+import PricingTable from "@/components/features/PricingTable";
 import mockupFeature from "../../../public/images/mockupFeature.png";
 export default function FeaturesPage() {
   return (
@@ -27,6 +28,7 @@ export default function FeaturesPage() {
 
         <FeaturesCard />
         <FunctOrganisation />
+        <PricingTable />
         <PartnerBanner />
         <AppointmentSection />
       </main>

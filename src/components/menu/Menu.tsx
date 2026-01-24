@@ -4,8 +4,9 @@ import Resize from "@/services/resize/resize";
 import { StyledBottomNavigation } from "@/styles/menu/StyledBottomNavigation";
 import { StyledFloatButton } from "@/styles/menu/styledFloatingMenu";
 import { AlignJustify, X } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Items } from "../../features/menu/MenuData";
+import { Items } from "../../data/menu/MenuData";
 import "../../styles/menu/Menu.css";
 import MenuList from "./MenuList";
 
@@ -14,7 +15,7 @@ export default function Menu() {
   const [isActive, setIsActive] = useState<boolean>(true);
   const [lastScrollY, setLastScrollY] = useState<number>(0);
   const [isAtBottom, setIsAtBottom] = useState<boolean>(false);
-  const isMobile = Resize();
+  const {isDesktop} = Resize();
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
@@ -25,7 +26,6 @@ export default function Menu() {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
 
-      // Vérifie si on est en bas de la page (avec une marge de 50px)
       const isBottom = windowHeight + currentScrollY >= documentHeight - 50;
       setIsAtBottom(isBottom);
 
@@ -45,18 +45,41 @@ export default function Menu() {
     };
   }, [lastScrollY]);
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
-      <StyledFloatButton
-        onClick={handleClick}
-        onKeyDown={(e) => e.key === "Enter" && handleClick()}
-      >
-        {isOpen ? (
-          <X size={32} color="#32BDCA" />
-        ) : (
-          <AlignJustify size={32} color="#32BDCA" />
-        )}
-      </StyledFloatButton>
+      <div className="floating-menu-container">
+        <div style={{ cursor: "pointer" }} onClick={scrollToContact} className="megaphone-container" >
+          <Image
+            src={
+              isDesktop
+                ? "/images/icone_megaphone_bleu.svg"
+                : "/images/icone_megaphone_bleu_rond.svg"
+            }
+            width={40}
+            height={40}
+            alt="Fonctionnalités de l'application"
+          />
+          {isDesktop && <p>Nous Contacter</p>}
+        </div>
+        <StyledFloatButton
+          onClick={handleClick}
+          onKeyDown={(e) => e.key === "Enter" && handleClick()}
+          style={{ position: "static", margin: -10 }}
+        >
+          {isOpen ? (
+            <X size={32} color="#32BDCA" />
+          ) : (
+            <AlignJustify size={32} color="#32BDCA" />
+          )}
+        </StyledFloatButton>
+      </div>
 
       {isOpen && (
         <nav className="menu-items-container">
@@ -64,13 +87,7 @@ export default function Menu() {
         </nav>
       )}
 
-      {isOpen && !isMobile && (
-        <>
-          <nav className="menu-items-desktop-container">
-            <MenuList className="menu-items-desktop" />
-          </nav>
-        </>
-      )}
+
       <div
         style={{
           position: "fixed",

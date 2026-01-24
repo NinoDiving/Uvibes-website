@@ -1,0 +1,181 @@
+
+.pricing-container {
+  margin: 32px;
+  font-family: var(--text-font);
+  background: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  /* Gradient border effect via padding and background */
+  padding: 32px;
+  background-image: var(--gradientColor); /* Using horizontal gradient as per image frame look */
+}
+
+/* Inner white container for the table */
+.pricing-table-wrapper {
+  background-color: white;
+  border-radius: calc(var(--border-radius) - 2px);
+  overflow-x: auto;
+  padding: 0;
+}
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+@media (max-width: 900px) {
+  .pricing-table-wrapper {
+    display: none;
+  }
+}
+
+.plan-header {
+  font-family: var(--title-font);
+  font-weight: 900; /* Bevellier Black */
+  text-transform: uppercase;
+  padding: 15px;
+  text-align: center;
+  font-size: 2em;
+  border-bottom: 1px solid #eee;
+}
+
+.feature-header {
+  border-bottom: 1px solid #eee; /* Continue line under empty cell */
+  padding: 15px;
+}
+
+.feature-name {
+  font-family: var(--text-font);
+  font-weight: bold;
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee; /* Light gray lines as in image */
+  color: black;
+  width: 30%;
+}
+
+.small-text {
+  font-family: var(--text-font);
+  font-weight: normal;
+  font-size: 0.8em;
+  color: #666;
+  font-style: italic;
+}
+
+.plan-text, .plan-price, .plan-value {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  font-family: var(--text-font);
+}
+
+.plan-text {
+  font-size: 0.9em;
+  line-height: 1.4;
+  color: #444;
+  text-align: center;
+}
+
+.plan-price {
+  font-family: var(--text-font-bold);
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.1em;
+  color: black;
+}
+
+.plan-value {
+  text-align: center;
+}
+
+.row-even {
+  background-color: white; /* Image shows mostly white backgrounds, maybe minimal keys */
+}
+
+/* Icons */
+.icon-check {
+  color: var(--greenUvibes); /* #78c751 */
+}
+
+.icon-cross {
+  color: #F62570; /* Red/Pink from gradient or close to Cross color in image */
+}
+
+/* CTA Banner - The bottom section inside the orange/pink frame */
+.pricing-cta-banner {
+  background: var(--pinkUvibes);
+  /* The image shows a gradient or solid pink/red bottom section. 
+     Global pink is #d90a5c. The image looks a bit like the gradient end color.
+     Let's use the gradient or specific pink. */
+  background: var(--gradientColor-card); /* Vertical gradient matches the heavy footer look maybe? Or just pink. */
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+.cta-content h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.5rem;
+  font-family: var(--title-font);
+  font-weight: 900;
+  color: white; /* Ensure title is white */
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-cta {
+  padding: 12px 30px;
+  border-radius: 50px;
+  border: none;
+  font-family: var(--text-font); /* Bevellier for buttons usually? Or Bold Text */
+  font-weight: 900;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 1.1em;
+  transition: transform 0.2s;
+  min-width: 200px;
+}
+
+.btn-cta:hover {
+  transform: scale(1.05);
+}
+
+.btn-cta.secondary {
+  background-color: var(--yellowUvibes); /* #feb000 for 'NOUS CONTACTER' */
+  color: white;
+}
+
+.btn-cta.primary {
+  background-color: #FD6E00; /* Darker orange for 'PRENDRE RENDEZ VOUS' */ /* Matches previous orange */
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .pricing-container {
+    padding: 5px; /* Thinner border on mobile */
+  }
+  
+  .pricing-table-wrapper {
+    padding: 0;
+  }
+  
+  .feature-name, .plan-header, .plan-text, .plan-price, .plan-value {
+    padding: 10px;
+    font-size: 0.85em;
+  }
+
+  .cta-content h3 {
+    font-size: 1.2em;
+  }
+
+  .btn-cta {
+    width: 100%;
+  }
+}

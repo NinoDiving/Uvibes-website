@@ -57,6 +57,59 @@
   font-family: var(--text-font-bold);
 }
 
+
+@media screen and (min-width:  1024px) {
+
+  .megaphone-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+   background-color: white;
+   border-radius: 15px;
+   width: 220px;
+   height: 50px;
+
+   & img {
+    width: 100px;
+    height: 100px;
+   }
+
+   &:hover {
+   border: 2px solid var(--blueUvibes);
+   }
+  }
+  .megaphone-container p {
+    color: var(--blueUvibes);
+    font-family: var(--text-font-bold);
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 14px;
+    transform: translateX(-15px);
+    white-space: nowrap;
+  }
+}
+
+
+@media screen and (max-width: 425px) {
+  .megaphone-container {
+    transform: translateX(10%);
+    margin-top: -20px; /* Remonter le logo */
+    
+    /* Ensure it doesn't block clicks unnecessarily if transparent parts are huge */
+    /* pointer-events: none; -> No, user needs to click it probably? 
+       User didn't say megaphone is clickable? 
+       In Menu.tsx it has onClick={scrollToContact}. So it MUST be clickable.
+    */
+
+    & img {
+      width: 130px;
+      height: 130px;
+    }
+  }
+}
+
+
 @media screen and (min-width: 768px) {
   .menu-items-bottom-nav {
     display: flex;
@@ -79,5 +132,37 @@
 @media screen and (max-width: 768px) {
   .menu-items-container {
     width: 100%;
+  }
+}
+
+.floating-menu-container {
+  position: fixed;
+  right: 16px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  top: 16px;
+  bottom: auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .floating-menu-container {
+    top: 5px;
+    bottom: 16px;
+    height: calc(100dvh - 32px); /* Use dvh to adjust for address bar */
+    justify-content: space-between;
+    pointer-events: none; /* Let clicks pass through the empty space */
+  }
+
+  .floating-menu-container > * {
+    pointer-events: auto; /* Re-enable clicks on the buttons */
+  }
+
+  /* Target the burger button (last child) to move it right and align with bottom pill */
+  .floating-menu-container > :last-child {
+    transform: translateX(15px);
+    margin-bottom: 20px; /* Adjusted to align with the center of the bottom navbar */
   }
 }

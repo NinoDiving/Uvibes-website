@@ -34,6 +34,7 @@ export default function WhyUvibes() {
         muted
         autoPlay
         loop
+        playsInline
         width={300}
         className="why-uvibes-video"
       ></video>

@@ -27,6 +27,7 @@ export default function Home() {
         image={mockupHome}
         alt="visuel application"
       />
+            
       <WhyUvibes />
 
       <UserNumberCard />

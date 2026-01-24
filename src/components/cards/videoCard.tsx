@@ -32,6 +32,7 @@ export default function VideoCard({
         muted
         autoPlay
         loop
+        playsInline
         width={width}
         style={{
           marginBottom: 40,

@@ -1,8 +1,8 @@
 "use client";
 
-import {useEffect, useState} from "react";
-import {PopupButton} from "react-calendly";
-import {Items} from "../../features/menu/MenuData";
+import { useEffect, useState } from "react";
+import { PopupButton } from "react-calendly";
+import { Items } from "../../data/menu/MenuData";
 import "../../styles/menu/Menu.css";
 import MenuItem from "./MenuItem";
 

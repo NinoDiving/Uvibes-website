@@ -6,7 +6,7 @@
   background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent blanc */
   padding: 3rem; /* Augmenté pour correspondre à l'image */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre plus douce */
-  z-index: 50;
+  z-index: 9999;
   border-radius: 12px; /* Rayon de bordure plus doux */
   width: 90%; /* Garde une largeur relative */
   max-width: 550px; /* Légèrement plus large */
