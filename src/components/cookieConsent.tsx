@@ -12,58 +12,50 @@ import "../styles/cookie.css";
 
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);
+  const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
 
   useEffect(() => {
     const consent = Cookies.get("cookie-consent");
     if (!consent) {
       setShowBanner(true);
     } else if (consent === "accepted") {
-      // Si déjà accepté, configurer GA immédiatement
-      if (typeof window !== "undefined" && window.gtag) {
-        window.gtag("config", "G-N068M873WC", {
-          send_page_view: true,
-          debug_mode: true,
+      // Restore consent if already accepted
+      if (typeof window !== "undefined" && window.gtag && GA_ID) {
+        window.gtag("consent", "update", {
+          analytics_storage: "granted",
         });
-        console.log("Google Analytics configured from existing consent");
+        // Config is optional here if already in layout, but safe to re-run or rely on layout's config picking up the updated consent
+        console.log("Google Analytics consent restored: granted");
       }
     }
-  }, []);
+  }, [GA_ID]);
 
   const acceptCookies = () => {
     Cookies.set("cookie-consent", "accepted", { expires: 365 });
     setShowBanner(false);
-    // Réinitialiser Google Analytics avec le consentement
-    if (typeof window !== "undefined" && window.gtag) {
+    
+    if (typeof window !== "undefined" && window.gtag && GA_ID) {
       window.gtag("consent", "update", {
         analytics_storage: "granted",
       });
-      // Configurer Google Analytics et envoyer la vue de page initiale après acceptation
-      window.gtag("config", "G-N068M873WC", {
-        send_page_view: true,
-        debug_mode: true,
+      // Force a new config signal to ensure the page view is registered with the new consent
+      window.gtag("config", GA_ID, {
+         page_path: window.location.pathname,
+         debug_mode: true
       });
-      console.log(
-        "Google Analytics configured and page view sent after acceptance"
-      );
-
-      // Test event après acceptation
-      window.gtag("event", "test_event", {
-        event_category: "testing",
-        event_label: "consent_accepted",
-      });
-      console.log("Test event sent after acceptance");
+      console.log("Cookie consent accepted: GA granted");
     }
   };
 
   const refuseCookies = () => {
     Cookies.set("cookie-consent", "refused", { expires: 365 });
     setShowBanner(false);
-    // Désactiver Google Analytics
+    
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("consent", "update", {
         analytics_storage: "denied",
       });
-      console.log("Google Analytics consent denied");
+      console.log("Cookie consent refused: GA denied");
     }
   };
 

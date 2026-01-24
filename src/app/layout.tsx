@@ -1,7 +1,11 @@
 import CookieConsent from "@/components/cookieConsent";
+import MaintenanceWrapper from "@/components/maintenance/MaintenanceWrapper";
+import { getMaintenanceStatus } from "@/lib/maintenanceState";
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Uvibes",
@@ -18,12 +22,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isMaintenanceMode = getMaintenanceStatus();
+
   return (
     <html lang="fr">
       <head>
+        {/* ... scripts ... */}
         <Script
           strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=G-N068M873WC`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
         />
         <Script
           id="google-analytics"
@@ -36,14 +43,20 @@ export default function RootLayout({
               gtag('consent', 'default', {
                 'analytics_storage': 'denied'
               });
-              console.log('Google Analytics default consent set to denied');
+              gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                page_path: window.location.pathname,
+                debug_mode: true
+              });
+              console.log('Google Analytics initialized with denied consent');
             `,
           }}
         />
       </head>
       <body>
-        {children}
-        <CookieConsent />
+        <MaintenanceWrapper isMaintenanceMode={isMaintenanceMode}>
+            {children}
+            <CookieConsent />
+        </MaintenanceWrapper>
       </body>
     </html>
   );

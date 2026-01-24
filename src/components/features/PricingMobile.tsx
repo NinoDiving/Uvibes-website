@@ -1,4 +1,5 @@
 "use client";
+import usePricing from "@/services/pricing/usePricing";
 import { Check, X } from "lucide-react";
 import "../../styles/features/PricingMobile.css";
 import { features, plans } from "./PricingData";
@@ -12,6 +13,15 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 export default function PricingMobile() {
+  const pricingData = usePricing();
+
+  const mergedPlans = plans.map((plan) => {
+    const dynamicPrice = pricingData.find(
+      (p) => p.planName === plan.name.toUpperCase()
+    )?.price;
+    return { ...plan, price: dynamicPrice || "-" };
+  });
+
   return (
     <div className="pricing-mobile-container">
       <Swiper
@@ -24,7 +34,7 @@ export default function PricingMobile() {
         pagination={{ clickable: true }}
         className="pricing-swiper"
       >
-        {plans.map((plan, planIndex) => (
+        {mergedPlans.map((plan, planIndex) => (
           <SwiperSlide key={planIndex}>
             <div className="pricing-card" style={{ borderColor: plan.color }}>
               <div className="pricing-card-header" style={{ backgroundColor: plan.color }}>

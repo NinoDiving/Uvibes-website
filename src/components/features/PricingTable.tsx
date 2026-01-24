@@ -1,5 +1,7 @@
 "use client";
+import usePricing from "@/services/pricing/usePricing";
 import { Check, X } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { PopupButton } from "react-calendly";
 import "../../styles/features/PricingTable.css";
@@ -8,6 +10,14 @@ import PricingMobile from "./PricingMobile";
 
 export default function PricingTable() {
   const [rootElement, setRootElement] = useState<HTMLElement | null>(null);
+  const pricingData = usePricing();
+
+  const mergedPlans = plans.map((plan) => {
+    const dynamicPrice = pricingData.find(
+      (p) => p.planName === plan.name.toUpperCase()
+    )?.price;
+    return { ...plan, price: dynamicPrice || "-" }; // Fallback to "-" if loading or not found
+  });
 
   useEffect(() => {
     // Only executed on the client
@@ -22,7 +32,7 @@ export default function PricingTable() {
           <thead>
             <tr>
               <th className="feature-header"></th>
-              {plans.map((plan, index) => (
+              {mergedPlans.map((plan, index) => (
                 <th key={index} className="plan-header" style={{ color: plan.color }}>
                   {plan.name}
                 </th>
@@ -33,7 +43,7 @@ export default function PricingTable() {
             {/* Objectif Row */}
             <tr className="row-text">
               <td className="feature-name">Objectif</td>
-              {plans.map((plan, index) => (
+              {mergedPlans.map((plan, index) => (
                 <td key={index} className="plan-text">
                   {plan.description}
                 </td>
@@ -42,7 +52,7 @@ export default function PricingTable() {
             {/* Prix Row */}
             <tr className="row-price">
               <td className="feature-name">Prix <span className="small-text">(frais de mise en place inclus)</span></td>
-              {plans.map((plan, index) => (
+              {mergedPlans.map((plan, index) => (
                 <td key={index} className="plan-price">
                   {plan.price}
                 </td>
@@ -52,7 +62,7 @@ export default function PricingTable() {
             {features.slice(2).map((feature, featureIndex) => (
               <tr key={featureIndex} className={featureIndex % 2 === 0 ? "row-even" : "row-odd"}>
                 <td className="feature-name">{feature.name}</td>
-                {plans.map((plan, planIndex) => (
+                {mergedPlans.map((plan, planIndex) => (
                   <td key={planIndex} className="plan-value">
                     {plan.values[featureIndex] ? (
                       <Check className="icon-check" size={24} />
@@ -79,7 +89,9 @@ export default function PricingTable() {
                     className="btn-cta secondary"
                 />
             )}
-            <button className="btn-cta primary">NOUS CONTACTER</button>
+            <button  className="btn-cta primary">
+              <Link href="/#contact">NOUS CONTACTER</Link>
+            </button>
           </div>
         </div>
       </div>

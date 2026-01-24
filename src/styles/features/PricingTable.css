@@ -134,7 +134,7 @@
   padding: 12px 30px;
   border-radius: 50px;
   border: none;
-  font-family: var(--text-font); /* Bevellier for buttons usually? Or Bold Text */
+  font-family: var(--text-font);
   font-weight: 900;
   cursor: pointer;
   text-transform: uppercase;
@@ -155,6 +155,11 @@
 .btn-cta.primary {
   background-color: #FD6E00; /* Darker orange for 'PRENDRE RENDEZ VOUS' */ /* Matches previous orange */
   color: white;
+  
+  & a {
+    text-decoration: none;
+    color: white;
+  }
 }
 
 @media (max-width: 768px) {

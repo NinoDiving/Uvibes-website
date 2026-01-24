@@ -3,6 +3,7 @@ import { HeroBanner } from "@/components/banner/heroBanner";
 import Contact from "@/components/contact/contact";
 import Footer from "@/components/footer/Footer";
 import FloatingMenu from "@/components/menu/Menu";
+import FeaturedArticles from "@/components/section/FeaturedArticles";
 import FunctSection from "@/components/section/functSection";
 import Uvibes from "@/components/uvibes/uvibes";
 
@@ -16,14 +17,40 @@ import Resize from "@/services/resize/resize";
 import mockupHome from "../../public/images/mochupHome.png";
 import { BenefitsHomeSection } from "../components/section/BenefitsHomeSection";
 
+import { sanitizeText } from "@/services/blog/sanitize";
+import { fetchHomeContent } from "@/services/home/fetchHomeContent";
+import { useEffect, useState } from "react";
+
+// ... existing imports
+
 export default function Home() {
   const { isMobile } = Resize();
+  const [heroContent, setHeroContent] = useState({
+    title: "(Re)Donnez vie à votre collectif",
+    description: "La première innovation socio-digitale",
+  });
+
+  useEffect(() => {
+    const loadContent = async () => {
+      try {
+        const { title, description } = await fetchHomeContent();
+        setHeroContent({
+          title: sanitizeText(title),
+          description: sanitizeText(description),
+        });
+      } catch (error) {
+        console.error("Failed to load home content", error);
+      }
+    };
+    loadContent();
+  }, []);
+
   return (
     <main>
       <HeroBanner
         subtitle=""
-        title="(Re)Donnez vie à votre collectif"
-        description="La première innovation socio-digitale"
+        title={heroContent.title}
+        description={heroContent.description}
         image={mockupHome}
         alt="visuel application"
       />
@@ -67,7 +94,10 @@ export default function Home() {
         width={isMobile ? 300 : 1200}
       />
 
+
       <BenefitsHomeSection />
+      
+      <FeaturedArticles />
 
       <FloatingMenu />
 

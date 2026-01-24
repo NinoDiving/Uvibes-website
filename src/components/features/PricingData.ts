@@ -19,21 +19,18 @@ export const plans = [
     name: "VIBES CONNECTION",
     color: "var(--mainColor)", // #fd6e00
     description: "Favorisez les interactions et suivez l'état d'esprit de votre collectif",
-    price: "3 980 € / an",
     values: [true, true, true, true, false, false, false, false, false, false, false],
   },
   {
     name: "VIBES PREMIUM",
     color: "var(--yellowUvibes)", // #feb000
     description: "Renforcez la visibilité de votre marque et l'efficacité de votre communication interne",
-    price: "4 980 € / an",
     values: [true, true, true, true, true, true, true, false, false, false, false],
   },
   {
     name: "VIBES BOOST",
     color: "var(--pinkUvibes)", // #d90a5c
     description: "Boostez la dynamique de votre collectif avec des outils de travail innovants",
-    price: "5 980 € / an",
     values: [true, true, true, true, true, true, true, true, true, true, true],
   },
 ];
