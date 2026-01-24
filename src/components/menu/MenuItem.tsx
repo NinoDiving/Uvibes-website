@@ -14,8 +14,10 @@ export default function MenuItems({ icon, label, color, link }: MenuItemProps) {
       passHref
       className="items-link"
       style={{
-        fontWeight: isActive ? 800 : 400,
-        transform: isActive ? "scale(1.2)" : "scale(1)",
+        fontWeight: isActive ? "bolder" : "normal",
+        transform: isActive ? "scale(1.3)" : "scale(1)",
+        textDecoration: isActive ? "underline" : "none",
+        textUnderlineOffset: isActive ? "5px" : "0px",
         transition: "all 0.2s ease",
       }}
     >

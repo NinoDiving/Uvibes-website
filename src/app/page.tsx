@@ -1,81 +1,106 @@
 "use client";
 import { HeroBanner } from "@/components/banner/heroBanner";
-import UserNumberCard from "@/components/cards/userNumberCard";
-import { PartnerCarousel } from "@/components/carousel/PartnerCarousel";
 import Contact from "@/components/contact/contact";
 import Footer from "@/components/footer/Footer";
 import FloatingMenu from "@/components/menu/Menu";
+import FeaturedArticles from "@/components/section/FeaturedArticles";
 import FunctSection from "@/components/section/functSection";
-import InspirationSection from "@/components/section/inspirationSection";
 import Uvibes from "@/components/uvibes/uvibes";
 
+import UserNumberCard from "@/components/cards/userNumberCard";
+import VideoCard from "@/components/cards/videoCard";
+import { PartnerCarousel } from "@/components/carousel/PartnerCarousel";
+import InspirationSection from "@/components/section/inspirationSection";
+import WhyUvibes from "@/components/section/WhyUvibes";
 import Testimony from "@/components/testimony/testimony";
 import Resize from "@/services/resize/resize";
-import Image from "next/image";
 import mockupHome from "../../public/images/mochupHome.png";
-import visuelHome1Mobile from "../../public/images/visuel-homepage1.jpg";
-import visuelHome2Mobile from "../../public/images/visuel-homepage2.jpg";
-import visuelHome1Desktop from "../../public/images/visuelHome1Desktop.jpg";
-import visuelHome2Desktop from "../../public/images/visuelHome2Desktop.jpg";
 import { BenefitsHomeSection } from "../components/section/BenefitsHomeSection";
+
+import { sanitizeText } from "@/services/blog/sanitize";
+import { fetchHomeContent } from "@/services/home/fetchHomeContent";
+import { useEffect, useState } from "react";
+
+// ... existing imports
 
 export default function Home() {
   const { isMobile } = Resize();
+  const [heroContent, setHeroContent] = useState({
+    title: "(Re)Donnez vie à votre collectif",
+    description: "La première innovation socio-digitale",
+  });
+
+  useEffect(() => {
+    const loadContent = async () => {
+      try {
+        const { title, description } = await fetchHomeContent();
+        setHeroContent({
+          title: sanitizeText(title),
+          description: sanitizeText(description),
+        });
+      } catch (error) {
+        console.error("Failed to load home content", error);
+      }
+    };
+    loadContent();
+  }, []);
+
   return (
     <main>
       <HeroBanner
         subtitle=""
-        title="L’alternative éthique et pleine de vie aux réseaux sociaux
-        habituels"
-        description="Au sein d’un collectif, voir l’autre et ce que nous
-        vivons autrement"
+        title={heroContent.title}
+        description={heroContent.description}
         image={mockupHome}
         alt="visuel application"
       />
-      <FunctSection />
-      <div
-        style={{
-          position: "relative",
-          width: "100%",
-          height: isMobile ? "30dvh" : "60vh",
-        }}
-      >
-        <Image
-          src={isMobile ? visuelHome1Mobile : visuelHome1Desktop}
-          alt="visuel homme avec téléphone"
-          fill
-          style={{
-            objectFit: "cover",
-            width: "100%",
-          }}
-          loading="lazy"
-          priority={false}
-        />
-      </div>
-      <BenefitsHomeSection />
-      <InspirationSection />
-      {isMobile && <UserNumberCard />}
-      <Testimony />
-      <FloatingMenu />
-      <div
-        style={{
-          position: "relative",
-          width: "100%",
-          height: isMobile ? "30dvh" : "60vh",
-        }}
-      >
-        <Image
-          src={isMobile ? visuelHome2Mobile : visuelHome2Desktop}
-          alt="visuel homme avec téléphone"
-          fill
-          style={{
-            objectFit: "cover",
-            objectPosition: "center 50%",
-          }}
-          loading="lazy"
-        />
-      </div>
+            
+      <WhyUvibes />
+
+      <UserNumberCard />
+      <VideoCard
+        title="Elles y trouvent de la bonne humeur"
+        videoSrcDdesktop={"/videos/Lisa-desktop.mp4"}
+        videoSrcMobile={"/videos/Lisa-mobile.mp4"}
+        width={isMobile ? 300 : 1200}
+      />
       <PartnerCarousel />
+
+      <VideoCard
+        title="Ils partagent leurs points de vue"
+        videoSrcDdesktop={"/videos/Pierre-desktop.mp4"}
+        videoSrcMobile={"/videos/Pierre-mobile.mp4"}
+        width={isMobile ? 300 : 1200}
+      />
+      <InspirationSection />
+      <VideoCard
+        title="Ils créent du lien"
+        videoSrcDdesktop={"/videos/Colette-desktop.mp4"}
+        videoSrcMobile={"/videos/Colette-mobile.mp4"}
+        width={isMobile ? 300 : 1200}
+      />
+      <Testimony />
+      <VideoCard
+        title="Ils y trouvent de nouvelles idées"
+        videoSrcDdesktop={"/videos/Delphine-desktop.mp4"}
+        videoSrcMobile={"/videos/Delphine-mobile.mp4"}
+        width={isMobile ? 300 : 1200}
+      />
+      <FunctSection />
+      <VideoCard
+        title="Ils élargissent leurs horizons"
+        videoSrcDdesktop={"/videos/Nadine-desktop.mp4"}
+        videoSrcMobile={"/videos/Nadine-mobile.mp4"}
+        width={isMobile ? 300 : 1200}
+      />
+
+
+      <BenefitsHomeSection />
+      
+      <FeaturedArticles />
+
+      <FloatingMenu />
+
       <Uvibes />
       <Contact />
       <Footer />

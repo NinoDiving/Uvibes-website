@@ -1,3 +1,10 @@
+.user-number-wrapper {
+  background-image: var(--gradientColor-card);
+  padding: calc(var(--spacing-ref) * 4) 0;
+  justify-items: center;
+  margin-top: 2rem;
+}
+
 .user-number-card-container {
   display: flex;
   flex-direction: column;
@@ -11,6 +18,7 @@
   border: 1px solid var(--mainColor);
   border-radius: var(--border-radius);
   padding: calc(var(--spacing-ref) * 2);
+  background-color: var(--cardsOpacity);
 
   & h2 {
     color: var(--mainColor);
@@ -26,7 +34,7 @@
 
 .user-number {
   color: var(--secondaryColor);
-  font-size: var(--font-size-title-text);
+  font-size: calc(var(--font-size-title-text) * 1.5);
   font-family: var(--text-font);
   line-height: 1.2;
   text-align: center;

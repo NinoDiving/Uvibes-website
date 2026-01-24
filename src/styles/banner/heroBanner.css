@@ -2,6 +2,7 @@
   width: 100%;
   background: var(--gradientColor-card);
   position: relative;
+  overflow: hidden;
 }
 
 .hero-banner-container {
@@ -41,17 +42,36 @@
 
 .hero-banner-image {
   position: relative;
-  width: auto;
-  max-height: 300px;
-  object-fit: contain;
   z-index: 0;
   pointer-events: none;
   transform: translateY(2rem);
   overflow: hidden;
 }
 
+.hero-vibration {
+  position: absolute;
+  bottom: 220px;
+  left: -50px;
+  width: 750px;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 1;
+  transform: rotate(180deg);
+}
+
+.hero-vibration-right {
+  position: absolute;
+  top: 200px;
+  right: -100px;
+  width: 1050px;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .logo_mobile {
   display: block;
+  width: 50px;
+  height: auto;
 }
 .logo_desktop {
   display: none;
@@ -71,7 +91,7 @@
 
 .mobile-only {
   position: relative;
-  z-index: 0;
+  z-index: 10;
   overflow: visible;
   margin-bottom: 2rem;
   max-width: 350px;
@@ -81,9 +101,86 @@
   display: none;
 }
 
+@media screen and (max-width: 768px) {
+  .hero-vibration {
+    position: absolute;
+    bottom: 250px;
+    left: -50px;
+    width: 450px;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 1;
+    transform: rotate(180deg);
+  }
+
+  .hero-vibration-right {
+    position: absolute;
+    top: 250px;
+    right: -10px;
+    width: 700px;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .hero-banner-container {
+    padding-top: 4rem;
+  }
+
+  .hero-banner-content h1 {
+    text-align: center;
+    font-size: 3.5rem;
+  }
+
+  .hero-banner-content p {
+    text-align: center;
+    place-self: center;
+    width: 20ch;
+  }
+
+  .logo_mobile {
+    width: 50px;
+    transform: translateX(20px);
+  }
+
+  .hero-vibration {
+    position: absolute;
+    bottom: 250px;
+    left: -50px;
+    width: 450px;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 1;
+    transform: rotate(180deg);
+  }
+
+  .hero-vibration-right {
+    position: absolute;
+    top: 350px;
+    right: -10px;
+    width: 400px;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .hero-vibration {
+    position: absolute;
+    bottom: 250px;
+    left: -30px;
+    width: 350px;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 0;
+    transform: rotate(180deg);
+  }
+}
+
 @media screen and (min-width: 768px) {
   .hero-banner-container {
-    padding: calc(var(--spacing-ref) * 2);
+    padding: calc(var(--spacing-ref) * 5);
     overflow: hidden;
   }
 
@@ -126,8 +223,9 @@
 
   .hero-banner-image-desktop {
     width: auto;
-    max-height: 370px;
+    max-height: 500px;
     object-fit: contain;
     overflow: hidden;
+    z-index: 10;
   }
 }

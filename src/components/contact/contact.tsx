@@ -3,7 +3,7 @@ import FormContact from "../form/formContact";
 
 export default function Contact() {
   return (
-    <main className="contact-container">
+    <main className="contact-container" id="contact">
       <section className="contact-section">
         <h2>Contactez-nous</h2>
         <p>

@@ -30,7 +30,7 @@
 }
 
 .article-title {
-  font-size: calc(var(--font-size-h3) * 1.2);
+  font-size: calc(var(--font-size-h3) * 1.5);
   font-family: var(--title-font);
   padding-bottom: calc(var(--spacing-ref) * 2);
   color: var(--mainColor);
@@ -43,6 +43,7 @@
   & p {
     padding-bottom: calc(var(--spacing-ref) * 2);
     font-size: calc(var(--font-size-text) * 1.2);
+    color: var(--pinkUvibes);
   }
 }
 

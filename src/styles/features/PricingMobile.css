@@ -1,0 +1,112 @@
+.pricing-mobile-container {
+  display: none; /* Hidden by default (desktop) */
+  padding: 2rem 0; /* Add vertical padding for shadow/pagination */
+  width: 100%;
+}
+
+.pricing-swiper {
+  width: 100%;
+  padding-bottom: 3rem !important; /* Space for pagination */
+}
+
+.pricing-card {
+  border: 2px solid; /* Color set inline */
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  height: 100%; /* Ensure equal height if needed */
+}
+
+.pricing-card-header {
+  padding: 1rem;
+  text-align: center;
+}
+
+.pricing-card-title {
+  margin: 0;
+  color: white;
+  font-family: var(--title-font);
+  text-transform: uppercase;
+  font-size: 1.25rem;
+}
+
+.pricing-card-body {
+  padding: 1.5rem;
+}
+
+.pricing-card-description {
+  font-family: var(--text-font);
+  font-size: 0.95rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.pricing-card-price {
+  font-family: var(--text-font-bold);
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.pricing-card-price-note {
+  font-family: var(--text-font);
+  font-size: 0.8rem;
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.pricing-card-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pricing-feature-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.pricing-feature-item:last-child {
+  border-bottom: none;
+}
+
+.feature-icon {
+  margin-right: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.feature-text {
+  font-family: var(--text-font);
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.pricing-feature-item.unavailable .feature-text {
+  color: #999;
+}
+
+/* Swiper Pagination Customization */
+.swiper-pagination-bullet {
+  background: #ccc;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--primary-color, #e91e63); /* Use a primary color or fallback */
+}
+
+
+/* Responsive Toggle */
+@media (max-width: 900px) { /* Adjust breakpoint as needed */
+  .pricing-mobile-container {
+    display: block; /* Show swiper container */
+  }
+}
