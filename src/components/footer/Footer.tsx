@@ -25,7 +25,7 @@ export default function Footer() {
           <Link href="https://www.linkedin.com/company/uvibes">
             <Image src={iconLinkedIn} alt="LinkedIn" width={60} height={60} />
           </Link>
-          <Link href="https://www.instagram.com/vibesinattendues/">
+          <Link href="https://www.instagram.com/uvibesofficiel/">
             <Image src={iconInsta} alt="Instagram" width={70} height={70} />
           </Link>
         </div>

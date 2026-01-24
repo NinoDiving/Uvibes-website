@@ -1,14 +1,13 @@
 .menu-items-container {
+  width: 20%;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
-  left: 0;
-  padding: calc(var(--spacing-ref) * 10) calc(var(--spacing-ref) * 1.75)
-    calc(var(--spacing-ref) * 5) 0;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-end;
   gap: 2rem;
   background-color: rgba(255, 255, 255, 0.95);
@@ -23,6 +22,10 @@
     flex-direction: row-reverse;
     align-items: center;
     gap: 0.5rem;
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 30%;
   }
 }
 
@@ -71,18 +74,10 @@
     padding-right: var(--spacing-ref);
     text-align: center;
   }
+}
 
-  @supports (-webkit-touch-callout: none) {
-    .MuiBottomNavigation-root {
-      position: sticky !important;
-      bottom: 0 !important;
-      backdrop-filter: blur(8px);
-    }
-  }
-
-  @supports (bottom: env(safe-area-inset-bottom)) {
-    .MuiBottomNavigation-root {
-      padding-bottom: env(safe-area-inset-bottom);
-    }
+@media screen and (max-width: 768px) {
+  .menu-items-container {
+    width: 100%;
   }
 }

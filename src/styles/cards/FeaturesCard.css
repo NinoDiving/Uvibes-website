@@ -93,8 +93,8 @@
 }
 
 .features-video {
-  width: 250px;
-  height: 250px;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
   border: 0.3rem solid var(--mainColor);
   object-fit: cover;
@@ -102,8 +102,8 @@
 }
 
 .features-video.playing {
-  width: 240px;
-  height: 240px;
+  width: 350px;
+  height: 350px;
   border-width: 0.5rem;
 }
 

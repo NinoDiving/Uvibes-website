@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     //prettier-ignore
     "Uvibes est une application web dédiée aux échanges vidéo autour de thématiques variées. Elle permet aux utilisateurs de partager leurs expériences et leurs connaissances à travers des discussions enrichissantes. Grâce à Uvibes, apprenez des autres et contribuez à une communauté où le savoir se transmet par l'interaction.",
   icons: {
-    icon: "/images/iconUvibes.svg",
+    icon: "/images/iconUvibes.png",
   },
 };
 

@@ -1,7 +1,7 @@
 .items-label {
   font-size: calc(var(--font-size-text) * 1.2);
   font-family: var(--text-font);
-  font-weight: 550;
+  font-weight: bold;
   white-space: nowrap;
 }
 
@@ -23,5 +23,11 @@
     align-items: center;
     gap: 0;
     padding: var(--spacing-ref);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .items-link {
+    transform: scale(2);
   }
 }

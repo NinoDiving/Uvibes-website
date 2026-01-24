@@ -1,12 +1,8 @@
 import FetchCitation from "@/services/citation/citation";
-import Resize from "@/services/resize/resize";
 import "../../styles/section/inspirationSection.css";
-import UserNumberCard from "../cards/userNumberCard";
 
 export default function InspirationSection() {
   const { citation, authorCitation, roleAuthor } = FetchCitation();
-  const { isDesktop, mounted } = Resize();
-  if (!mounted) return null;
 
   return (
     <article className="inspiration-section-container">
@@ -21,7 +17,6 @@ export default function InspirationSection() {
           </p>
           <p className="inspiration-text inspiration-text-work">{roleAuthor}</p>
         </div>
-        {isDesktop && <UserNumberCard />}
       </section>
     </article>
   );

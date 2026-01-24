@@ -34,7 +34,7 @@ export default function FunctSection() {
         />
       </div>
       <div className="funct-button-container">
-        <LinkStyled href="/features">
+        <LinkStyled href="/avantages">
           <Button title="Une expérience engageante" type="button" />
         </LinkStyled>
       </div>

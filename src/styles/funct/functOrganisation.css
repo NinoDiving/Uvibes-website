@@ -26,7 +26,7 @@
   width: 100%;
   gap: var(--spacing-ref);
   padding: var(--spacing-ref);
-  background: rgba(253, 110, 0, 0.1);
+  background: rgba(253, 110, 0, 0.178);
   border-radius: var(--border-radius);
 }
 

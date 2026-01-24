@@ -41,7 +41,13 @@ export default function AllArticle() {
           ...fetchUvibesArticle,
           ...fetchExperienceArticle,
         ];
-        setAllArticle(combinedArticles);
+
+        // Trier par date décroissante (les plus récents en premier)
+        const sortedArticles = combinedArticles.sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+
+        setAllArticle(sortedArticles);
       } catch (error) {
         console.log(error);
       }
@@ -86,14 +92,14 @@ export default function AllArticle() {
         }}
       >
         <option value="">Toutes les catégories</option>
+        <option value="science-et-societe">Science et Société</option>
+        <option value="experiences-inattendues">Expériences inattendues</option>
         <option value="entreprise-article">Entreprise</option>
         <option value="education-article">Education</option>
-        <option value="science-et-societe">Science et Société</option>
-        <option value="uvibes-article">Uvibes</option>
-        <option value="experiences-inattendues">Expériences inattendues</option>
         <option value="personnes-sensibles-aux-echanges">
-          Personnes sensibles aux échanges
+          Collectifs sensibles aux échanges
         </option>
+        <option value="uvibes-article">Uvibes</option>
       </select>
 
       {currentArticles.map((article) => (

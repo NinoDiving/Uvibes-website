@@ -22,7 +22,7 @@ export function BenefitsHomeSection() {
       </div>
 
       <div className="benefices-home-button-container">
-        <Link href="/avantages">
+        <Link href="/features">
           <Button title="Pour tous les collectifs" type="button" />
         </Link>
       </div>

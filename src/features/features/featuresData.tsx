@@ -1,7 +1,7 @@
 export const FeaturesData = [
   {
     id: 1,
-    title: "Bien être : un voyage conversationnel",
+    title: "Pour votre collectif : Un voyage conversationnel",
     items: [
       { id: 1, item: "Un échange de un à un" },
       { id: 2, item: "En vidéo" },
@@ -12,7 +12,7 @@ export const FeaturesData = [
   },
   {
     id: 2,
-    title: "Collectif : une meilleure prise en compte de votre organisation",
+    title: "Pour vous : Une connaissance approfondie de votre organisation",
     items: [
       {
         id: 1,
@@ -28,14 +28,15 @@ export const FeaturesData = [
   },
   {
     id: 3,
-    title: "Excellence : un sur-mesure de ressources à explorer",
+    title:
+      "Pour tous : Un parcours d’entraînement aux compétences relationnelles",
     items: [
       {
         id: 1,
-        item: "Une cité des savoirs incluant infographiques, vidéos, podcasts, et articles",
+        item: "Une cité des savoirs incluant vidéos, podcasts, et articles",
       },
-      { id: 2, item: "Portant sur des sujets intéressant votre collectif" },
-      { id: 3, item: "Avec une valorisation à la fin" },
+      { id: 2, item: "Plus de 5h d’entraînement en autonomie" },
+      { id: 3, item: "Avec une attestation à la fin" },
     ],
     video: "/videos/étudiante.mp4",
   },
