@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   title: "Uvibes",
   description:
     //prettier-ignore
-    "Uvibes est une application web dédiée aux échanges vidéo autour de thématiques variées. Elle permet aux utilisateurs de partager leurs expériences et leurs connaissances à travers des discussions enrichissantes. Grâce à Uvibes, apprenez des autres et contribuez à une communauté où le savoir se transmet par l'interaction.",
+    "L’outil numérique pour apprendre, progresser et renforcer le bien-être au sein des collectifs.",
   icons: {
-    icon: "/images/iconUvibes.png",
+    icon: "/images/favicon.png",
   },
 };
 

@@ -37,12 +37,14 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
+    "fluent-ffmpeg": "^2.1.3",
     "husky": "^8.0.0",
     "lint-staged": "^15.5.1",
     "typescript": "^5"

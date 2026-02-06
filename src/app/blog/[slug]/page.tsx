@@ -1,4 +1,5 @@
 import ArticleContent from "@/components/blog/article";
+import "@/styles/blog/article.css";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 

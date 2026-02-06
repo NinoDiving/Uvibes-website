@@ -64,6 +64,7 @@
   font-size: 1.6rem;
 }
 
+
 @media screen and (min-width: 768px) {
   .funct-orga-card-container {
     display: grid;

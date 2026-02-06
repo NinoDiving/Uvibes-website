@@ -5,11 +5,10 @@ import {
   CircleGauge,
   DotIcon,
   Handshake,
-  Heart,
   Home,
   School,
   Smile,
-  UsersIcon,
+  UsersIcon
 } from "lucide-react";
 import { useState } from "react";
 import AvantagesCard from "../cards/avantagesCard";
@@ -37,7 +36,7 @@ export default function AvantagesContentDesktop() {
         </div>
         <div className="button">
           <button onClick={() => setOpenTab("collectif")} type="button">
-            <Heart size={100} />
+            <Handshake size={100} />
           </button>
           <p>Collectif</p>
         </div>

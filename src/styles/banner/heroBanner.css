@@ -43,9 +43,9 @@
 .hero-banner-image {
   position: relative;
   z-index: 0;
-  pointer-events: none;
-  transform: translateY(2rem);
-  overflow: hidden;
+object-fit: cover;
+transform: translateY(2rem);
+overflow: hidden;
 }
 
 .hero-vibration {
@@ -200,7 +200,7 @@
     left: auto;
     bottom: auto;
     transform: none;
-    width: 40%;
+    width: 60%;
     justify-content: flex-end;
   }
 
@@ -222,7 +222,7 @@
   }
 
   .hero-banner-image-desktop {
-    width: auto;
+    width: 800px;
     max-height: 500px;
     object-fit: contain;
     overflow: hidden;

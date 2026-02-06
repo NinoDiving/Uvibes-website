@@ -1,5 +1,5 @@
 import { LinkStyled } from "@/styles/button/LinkStyled";
-import { BookOpenText, HeartHandshake, MessagesSquare } from "lucide-react";
+import { BookOpenText, MessagesSquare, SmilePlus } from "lucide-react";
 import "../../styles/section/functSection.css";
 import Button from "../button/Button";
 import FunctCards from "../cards/functCards";
@@ -11,7 +11,7 @@ export default function FunctSection() {
       <div className="funct-container">
         <FunctCards
           icone={
-            <HeartHandshake size="100%" style={{ color: "var(--mainColor)" }} />
+            <SmilePlus size="110%" style={{ color: "var(--mainColor)" }} />
           }
           title={"Echanges"}
           subtitle={
@@ -34,7 +34,7 @@ export default function FunctSection() {
         />
       </div>
       <div className="funct-button-container">
-        <LinkStyled href="/avantages">
+        <LinkStyled href="/features">
           <Button title="Une expérience engageante" type="button" />
         </LinkStyled>
       </div>

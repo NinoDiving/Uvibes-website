@@ -26,8 +26,8 @@ export default function FeaturesPage() {
           <FloatingMenu />
         </nav>
 
-        <FeaturesCard />
         <FunctOrganisation />
+        <FeaturesCard />
         <PricingTable />
         <PartnerBanner />
         <AppointmentSection />

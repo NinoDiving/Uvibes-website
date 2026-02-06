@@ -1,10 +1,13 @@
 import FetchCitation from "@/services/citation/citation";
+import Link from "next/link";
 import "../../styles/section/inspirationSection.css";
+import Button from "../button/Button";
 
 export default function InspirationSection() {
   const { citation, authorCitation, roleAuthor } = FetchCitation();
 
   return (
+    <div>
     <article className="inspiration-section-container">
       <section className="inspiration-section">
         <div className="inspiration-section-text">
@@ -19,5 +22,11 @@ export default function InspirationSection() {
         </div>
       </section>
     </article>
+      <div className="cta-button-container">
+        <Link href="/avantages">
+          <Button title="Pour tous les collectifs" type="button" />
+        </Link>
+      </div>
+      </div>
   );
 }

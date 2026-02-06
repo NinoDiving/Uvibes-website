@@ -96,8 +96,8 @@ export default function Menu() {
           transform: "translateX(-50%)",
           display: "flex",
           gap: "1rem",
-
           zIndex: 9999,
+          pointerEvents: isActive && !isAtBottom ? "auto" : "none",
         }}
       >
         <StyledBottomNavigation

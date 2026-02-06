@@ -13,7 +13,6 @@ export async function fetchHomeContent() {
   let title = "(Re)Donnez vie à votre collectif";
   let description = "La première innovation socio-digitale";
 
-  // Fetch Title Post if tag exists
   if (titleTagId) {
     const postsRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/wp-json/wp/v2/posts?tags=${titleTagId}&per_page=1`);
     const posts = await postsRes.json();
@@ -27,11 +26,6 @@ export async function fetchHomeContent() {
     const postsRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/wp-json/wp/v2/posts?tags=${subtitleTagId}&per_page=1`);
     const posts = await postsRes.json();
     if (posts.length > 0) {
-      // Typically description might be content or title. 
-      // Based on user request "modifier le titre et la description", I'll assume:
-      // title-homepage -> Title (e.g. "(Re)Donnez vie...")
-      // subtitle-homepage -> Description (e.g. "La première innovation...")
-      // I'll use the post TITLE for the text to make it easy to edit in the WP interface list.
       description = posts[0].title.rendered;
     }
   }

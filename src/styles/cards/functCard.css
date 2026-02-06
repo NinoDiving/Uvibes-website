@@ -29,6 +29,7 @@
     font-family: var(--text-font);
     line-height: 1.2;
     font-weight: 400;
+    text-align: center;
   }
   & a {
     color: var(--secondaryColor);

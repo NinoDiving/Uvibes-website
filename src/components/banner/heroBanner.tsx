@@ -56,8 +56,8 @@ export function HeroBanner({
               src={image}
               alt={alt}
               className="hero-banner-image-desktop"
-              width={600}
-              height={900}
+              width={1000}
+              height={1000}
               priority
             />
           </figure>

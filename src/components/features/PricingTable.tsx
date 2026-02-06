@@ -16,11 +16,10 @@ export default function PricingTable() {
     const dynamicPrice = pricingData.find(
       (p) => p.planName === plan.name.toUpperCase()
     )?.price;
-    return { ...plan, price: dynamicPrice || "-" }; // Fallback to "-" if loading or not found
+    return { ...plan, price: dynamicPrice || "-" }; 
   });
 
   useEffect(() => {
-    // Only executed on the client
     setRootElement(document.getElementById("root") || document.body);
   }, []);
 
@@ -51,7 +50,7 @@ export default function PricingTable() {
             </tr>
             {/* Prix Row */}
             <tr className="row-price">
-              <td className="feature-name">Prix <span className="small-text">(frais de mise en place inclus)</span></td>
+              <td className="feature-name">Prix hors taxes <span className="small-text">(frais de mise en place inclus)</span></td>
               {mergedPlans.map((plan, index) => (
                 <td key={index} className="plan-price">
                   {plan.price}
@@ -78,8 +77,21 @@ export default function PricingTable() {
       </div>
 
       <div className="pricing-cta-banner">
+        <div className="cta-buttons">
+            {rootElement && (
+                <PopupButton
+                    url="https://calendly.com/uvibescommunication/30min"
+                    rootElement={rootElement}
+                    text="Prendre RDV"
+                    className="btn-cta secondary"
+                />
+            )}
+            <button  className="btn-cta primary">
+              <Link href="/#contact">NOUS CONTACTER</Link>
+            </button>
+          </div>
         <div className="cta-content">
-          <h3>Vous avez des besoins spécifiques et êtes une petite structure ? Parlons-en.</h3>
+          <h3>Vous avez des besoins spécifiques ou êtes une structure de moins de 250 personnes ? Parlons-en ensemble.</h3>
           <div className="cta-buttons">
             {rootElement && (
                 <PopupButton

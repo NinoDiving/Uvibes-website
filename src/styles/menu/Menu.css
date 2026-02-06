@@ -95,12 +95,6 @@
   .megaphone-container {
     transform: translateX(10%);
     margin-top: -20px; /* Remonter le logo */
-    
-    /* Ensure it doesn't block clicks unnecessarily if transparent parts are huge */
-    /* pointer-events: none; -> No, user needs to click it probably? 
-       User didn't say megaphone is clickable? 
-       In Menu.tsx it has onClick={scrollToContact}. So it MUST be clickable.
-    */
 
     & img {
       width: 130px;
@@ -151,18 +145,17 @@
   .floating-menu-container {
     top: 5px;
     bottom: 16px;
-    height: calc(100dvh - 32px); /* Use dvh to adjust for address bar */
+    height: calc(100dvh - 32px); 
     justify-content: space-between;
-    pointer-events: none; /* Let clicks pass through the empty space */
+    pointer-events: none; 
   }
 
   .floating-menu-container > * {
-    pointer-events: auto; /* Re-enable clicks on the buttons */
+    pointer-events: auto; 
   }
 
-  /* Target the burger button (last child) to move it right and align with bottom pill */
   .floating-menu-container > :last-child {
     transform: translateX(15px);
-    margin-bottom: 20px; /* Adjusted to align with the center of the bottom navbar */
+    margin-bottom: 20px; 
   }
 }

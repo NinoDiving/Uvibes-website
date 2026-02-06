@@ -12,7 +12,7 @@ export default function Testimony() {
   const testimonies = FetchTestimony();
   return (
     <section className="testimony">
-      <h2>Ils parlent de nous</h2>
+      <h2 style={{ textAlign: "center" }}>Ils parlent de nous</h2>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={0}

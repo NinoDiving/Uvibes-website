@@ -54,7 +54,7 @@ export default function FunctOrganisation() {
                   gap: "4px",
                 }}
               >
-                <span className="text">voir moins</span>
+                <span className="text" style={{color: "var(--pinkUvibes)"}}>voir moins</span>
                 <ChevronUp size={24} style={{ color: "var(--mainColor)" }} />
               </div>
             ) : (
@@ -66,7 +66,7 @@ export default function FunctOrganisation() {
                   gap: "4px",
                 }}
               >
-                <span className="text">voir plus</span>
+                <span className="text" style={{color: "var(--pinkUvibes)"}}>voir plus</span>
                 <ChevronDown size={24} style={{ color: "var(--mainColor)" }} />
               </div>
             )}
@@ -148,7 +148,7 @@ export default function FunctOrganisation() {
               />
             </div>
             <p className="title-text-orange">
-              Le moment et la durée d&apos;utilisation de Uvibes
+              Le moment et la durée des expériences intéractives
             </p>
           </div>
         </div>

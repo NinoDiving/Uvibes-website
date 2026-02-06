@@ -1,7 +1,5 @@
-import Link from "next/link";
 import { benefitsData } from "../../data/benefits/benefitsData";
 import "../../styles/section/BenefitsHomeSection.css";
-import Button from "../button/Button";
 import { BenefitsHomeItem } from "./benefitsHomeItem";
 
 export function BenefitsHomeSection() {
@@ -21,11 +19,7 @@ export function BenefitsHomeSection() {
         </div>
       </div>
 
-      <div className="benefices-home-button-container">
-        <Link href="/features">
-          <Button title="Pour tous les collectifs" type="button" />
-        </Link>
-      </div>
+      
     </section>
   );
 }
