@@ -1,0 +1,116 @@
+.blog-article {
+  margin: 0 auto;
+  width: 80%;
+  padding: 0;
+  border: 2px solid #000;
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: flex-start; /* Changed from space-between to avoid gap */
+  align-items: center;
+  box-shadow: 1px 4px 10px #00000038;
+  flex-direction: column;
+  overflow: hidden; /* Ensures image corners are clipped */
+  position: relative; /* Needed for stretched link */
+
+  & h3 {
+    font-size: var(--font-size-h3);
+    color: var(--mainColor);
+  }
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* border-radius removed, let overflow:hidden handle it */
+  }
+
+  & p {
+    font-size: var(--font-size-text);
+  }
+}
+
+.article-section {
+  padding-top: calc(var(--spacing-ref) * 2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-ref);
+}
+
+.article-container {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-ref);
+  padding: calc(var(--spacing-ref) * 2);
+}
+
+.article-card-content {
+  padding: var(--spacing-ref);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-ref);
+  flex-grow: 1; /* Ensure it fills the vertical space */
+  justify-content: space-between; /* Push content apart if needed, or simply let it flow. best to stick to top. */
+  width: 100%;
+
+  & a {
+    text-decoration: none;
+    font-family: var(--text-font);
+    
+    /* Make the link cover the entire card */
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+  }
+}
+
+.entreprise-article {
+  border-color: var(--blueUvibes);
+}
+
+.education-article {
+  border-color: var(--pinkUvibes);
+}
+
+.science-article {
+  border-color: var(--greenUvibes);
+}
+
+.vulnerability-article {
+  border-color: var(--yellowUvibes);
+}
+
+.uvibes-article {
+  border-color: var(--mainColor);
+}
+
+.title-section {
+  font-size: var(--font-size-h2);
+  color: var(--mainColor);
+  text-align: center;
+}
+
+.article-image-wrapper {
+  width: 100%;
+  position: relative;
+  aspect-ratio: 1 / 1; /* Square to show more of the image */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .article-container {
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-ref);
+  }
+
+  .blog-article {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+}

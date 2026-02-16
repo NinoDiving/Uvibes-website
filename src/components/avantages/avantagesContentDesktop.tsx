@@ -5,11 +5,10 @@ import {
   CircleGauge,
   DotIcon,
   Handshake,
-  Heart,
   Home,
   School,
   Smile,
-  UsersIcon,
+  UsersIcon
 } from "lucide-react";
 import { useState } from "react";
 import AvantagesCard from "../cards/avantagesCard";
@@ -25,19 +24,19 @@ export default function AvantagesContentDesktop() {
       <div className="avantages-button">
         <div className="button">
           <button onClick={() => setOpenTab("entreprise")} type="button">
-            <Building size={70} />
+            <Building size={100} />
           </button>
           <p>Entreprise</p>
         </div>
         <div className="button">
           <button onClick={() => setOpenTab("ecole")} type="button">
-            <School size={70} />
+            <School size={100} />
           </button>
           <p>Ecole</p>
         </div>
         <div className="button">
           <button onClick={() => setOpenTab("collectif")} type="button">
-            <Heart size={70} />
+            <Handshake size={100} />
           </button>
           <p>Collectif</p>
         </div>
@@ -60,8 +59,7 @@ export default function AvantagesContentDesktop() {
                 />
               }
               title="Performance : améliorer sa prise de décision et renforcer l’engagement"
-              stats="42% des employés admettent ne faire que le strict minimum (Etude 2023 Observatoire 
-						de la société et de la consommation)."
+              stats="En France, 93 % des salariés sont non engagés ou activement désengagés (Etude Gallup mars 2025)"
               content="Uvibes stimule la réflexion, offre une meilleure connaissance de son collectif et suscite l'adhésion collective"
             />
             <AvantagesCard
@@ -136,13 +134,12 @@ export default function AvantagesContentDesktop() {
               }
               title="Santé mentale : soutenir le bien-être des jeunes"
               stats="41% des étudiants présentent des symptômes dépressifs contre 26% avant le COVID (Etude Université Bordeaux, 2024)."
-              content="Uvibes encourage des échanges bienveillants entre élèves de tous horizons. 
-          Il élimine les facteurs de cyberharcèlement et de dévalorisation de soi."
+              content="Uvibes encourage des échanges bienveillants entre apprenants de tous horizons. Il élimine les facteurs de cyberharcèlement et de dévalorisation de soi."
             />
             <AvantagesCard
               icone={<Brain size={50} style={{ color: "var(--mainColor)" }} />}
               title="Soft skills : développer les savoir-agir relationnels"
-              stats="62 % des managers sont prêts à recruter un  collaborateur sur la base de ses soft skills, même si ses compétences  techniques ne correspondent pas entièrement au poste"
+              stats="62 % des managers sont prêts à recruter un collaborateur sur la base de ses soft skills, même si ses compétences techniques ne correspondent pas entièrement au poste (Etude cadremploi 2020)"
               content="Uvibes est le premier service qui offre un espace d'entraînement continu et de valorisation des compétences interpersonnelles."
             />
             <LastAvantagesCard

@@ -22,7 +22,7 @@ export default function ArticleContent({ article }: { article: Article }) {
       <p className="article-back-button" onClick={() => router.push("/blog")}>
         <ArrowLeft /> Retour
       </p>
-      <article className="article-container">
+      <article className="article-detail-container">
         {article.featured_image && (
           <Image
             src={article.featured_image}

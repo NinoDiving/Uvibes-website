@@ -1,4 +1,6 @@
+import { fetchPartners, PartnerLogo } from "@/services/home/fetchPartners";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -9,41 +11,32 @@ import fetedesvoisins from "../../../public/images/LogoFeteDesVoisins.png";
 import university from "../../../public/images/upvd_logo_hori_rvb.png";
 import "../../styles/carousel/PartnerCarousel.css";
 
+
+
 export function PartnerCarousel() {
-  const partnerLogos = [
-    {
-      index: 1,
-      src: university,
-      alt: "University of Perpignan",
-    },
+  const [partnerLogos, setPartnerLogos] = useState<PartnerLogo[]>([
+    { id: 1, src: university.src, alt: "University of Perpignan" },
+    { id: 3, src: eklore.src, alt: "Eklore" },
+    { id: 4, src: fetedesvoisins.src, alt: "Fête des voisins" },
+    // Defaults to avoid empty carousel initially or on error
+  ]);
+  const [, setIsFetched] = useState(false);
 
-    {
-      index: 3,
-      src: eklore,
-      alt: "Eklore",
-    },
-    {
-      index: 4,
-      src: fetedesvoisins,
-      alt: "Fête des voisins",
-    },
-    {
-      index: 5,
-      src: university,
-      alt: "University of Perpignan",
-    },
+  useEffect(() => {
+    const loadPartners = async () => {
+      try {
+        const partners = await fetchPartners();
+        if (partners.length > 0) {
+            setPartnerLogos(partners);
+            setIsFetched(true);
+        }
+      } catch (error) {
+        console.error("Failed to load partners", error);
+      }
+    };
+    loadPartners();
+  }, []);
 
-    {
-      index: 7,
-      src: eklore,
-      alt: "Eklore",
-    },
-    {
-      index: 8,
-      src: fetedesvoisins,
-      alt: "Fête des voisins",
-    },
-  ];
   return (
     <section className="partner-carousel">
       <h2 className="title-h2-orange partner-carousel-title">
@@ -59,17 +52,17 @@ export function PartnerCarousel() {
         }}
         speed={2000}
         centeredSlides={true}
-        slidesPerView={1.3}
+        slidesPerView={3}
         breakpoints={{
-          400: { slidesPerView: 2.5 },
-          1024: { slidesPerView: 3.3 },
+          400: { slidesPerView: 3 },
+          1024: { slidesPerView: 3 },
         }}
       >
         {partnerLogos.map((logo) => (
-          <SwiperSlide key={logo.index} className="swiper-slide">
-            <div key={logo.index} className="slide-wrapper">
+          <SwiperSlide key={logo.id} className="swiper-slide">
+            <div className="slide-wrapper">
               <Image
-                src={logo.src.src}
+                src={logo.src}
                 alt={logo.alt}
                 className="partner-logo"
                 width={300}
@@ -80,6 +73,9 @@ export function PartnerCarousel() {
           </SwiperSlide>
         ))}
       </Swiper>
+      {/* If fetched logos are just a few, Swiper might bug with loop=true. 
+          Usually usually needs at least slidesPerView * 2 slides. 
+          For now assuming client will add enough or it just duplicates. */}
     </section>
   );
 }

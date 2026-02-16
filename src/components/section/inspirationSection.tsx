@@ -1,14 +1,13 @@
 import FetchCitation from "@/services/citation/citation";
-import Resize from "@/services/resize/resize";
+import Link from "next/link";
 import "../../styles/section/inspirationSection.css";
-import UserNumberCard from "../cards/userNumberCard";
+import Button from "../button/Button";
 
 export default function InspirationSection() {
   const { citation, authorCitation, roleAuthor } = FetchCitation();
-  const { isDesktop, mounted } = Resize();
-  if (!mounted) return null;
 
   return (
+    <div>
     <article className="inspiration-section-container">
       <section className="inspiration-section">
         <div className="inspiration-section-text">
@@ -21,8 +20,13 @@ export default function InspirationSection() {
           </p>
           <p className="inspiration-text inspiration-text-work">{roleAuthor}</p>
         </div>
-        {isDesktop && <UserNumberCard />}
       </section>
     </article>
+      <div className="cta-button-container">
+        <Link href="/avantages">
+          <Button title="Pour tous les collectifs" type="button" />
+        </Link>
+      </div>
+      </div>
   );
 }

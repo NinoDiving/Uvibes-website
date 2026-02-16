@@ -1,4 +1,4 @@
-.article-container {
+.article-detail-container {
   padding: calc(var(--spacing-ref) * 2);
   & h1 {
     color: var(--mainColor);
@@ -16,7 +16,7 @@
 
   & img {
     width: 100%;
-    height: 100vw;
+    height: auto;
     object-fit: cover;
     border-radius: var(--border-radius);
     margin-bottom: calc(var(--spacing-ref) * 2);
@@ -30,10 +30,10 @@
 }
 
 .article-title {
-  font-size: calc(var(--font-size-h3) * 1.2);
+  font-size: calc(var(--font-size-h3) * 1.5);
   font-family: var(--title-font);
   padding-bottom: calc(var(--spacing-ref) * 2);
-  color: var(--mainColor);
+  color: var(--pinkUvibes);
 }
 
 .article-content {
@@ -43,6 +43,7 @@
   & p {
     padding-bottom: calc(var(--spacing-ref) * 2);
     font-size: calc(var(--font-size-text) * 1.2);
+    color: rgba(0, 0, 0, 0.904);
   }
 }
 
@@ -102,7 +103,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .article-container {
+  .article-detail-container {
     width: 80%;
     margin: 0 auto;
 
@@ -114,7 +115,7 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .article-container {
+  .article-detail-container {
     width: 60%;
   }
 }

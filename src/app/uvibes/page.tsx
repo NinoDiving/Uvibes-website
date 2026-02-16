@@ -10,7 +10,7 @@ import Resize from "@/services/resize/resize";
 import { DotIcon } from "lucide-react";
 import Image from "next/image";
 import logoUvibes from "../../../public/images/Logo VI blanc.png";
-import logoEclatense from "../../../public/images/LogoEclatens.svg";
+import logoEclatense from "../../../public/images/LogoEclatens.png";
 import uvibesTeam from "../../../public/images/TeamUvibes.jpg";
 import "../../styles/page/uvibes.css";
 
@@ -36,14 +36,14 @@ export default function uvibes() {
           <p className="text">
             Et si on se parlait vraiment ? <br />
             <br />
-            L’étude la plus longue de Harvard révèle que la qualité de nos
-            relations est la clé du bonheur (Vaillant, 2002). Sur les réseaux
-            sociaux traditionnels, les algorithmes nous relient à ceux qui
-            pensent comme nous. Dans la vraie vie, on reste entre groupes
-            familiers, on commente plus qu’on ne dialogue, et petit à petit...
-            on perd la richesse de la diversité humaine. <br />
+            La plus longue étude menée par Harvard montre que la qualité de nos
+            relations est le premier facteur de bonheur (Vaillant, 2002). Sur
+            les réseaux sociaux traditionnels, les algorithmes nous relient à
+            ceux qui pensent comme nous. Dans la vraie vie, on reste entre
+            groupes familiers, on commente plus qu’on ne dialogue, et petit à
+            petit... on perd la richesse de la diversité humaine. <br />
             <br />
-            Chez Uvibes, on croit à :
+            Chez Uvibes, nous croyons à :
           </p>
           <ul>
             <div className="uvibes-list">
@@ -66,10 +66,15 @@ export default function uvibes() {
             Uvibes facilite ces rencontres inattendues, par un jeu de questions
             ouvertes et positives.
             <br />
+            <br />
             Parce que c’est en allant vers l’inconnu que naissent les plus
             belles conversations.
           </p>
 
+          <section className="uvibes-container">
+            <h2 className="title-h2-orange uvibes-title">Sa concrétisation</h2>
+            <TeamSection />
+          </section>
           <h2 className="title-h2-orange uvibes-title">
             Notre engagement éthique
           </h2>
@@ -88,8 +93,8 @@ export default function uvibes() {
             </li>
           </ul>
           <p className="text" style={{ paddingTop: 5 }}>
-            Explore la rubrique « Uvibes » de notre blog pour en savoir plus sur
-            nos principes éthiques et leur mise en œuvre concrète.
+            Explorez la rubrique « Uvibes » de notre blog pour en savoir plus
+            sur nos principes éthiques et leur mise en œuvre concrète.
           </p>
         </section>
         <section className="uvibes-container ">
@@ -99,8 +104,8 @@ export default function uvibes() {
               <Image
                 src={logoEclatense}
                 alt="team-staff"
-                width={100}
-                height={100}
+                width={500}
+                height={500}
                 className="uvibes-eclatens-logo"
               />
               <h3 className="title-h3 uvibes-title">Un modèle non lucratif</h3>
@@ -130,10 +135,7 @@ export default function uvibes() {
             loading="lazy"
           />
         </div>
-        <section className="uvibes-container">
-          <h2 className="title-h2-orange uvibes-title">Sa concrétisation</h2>
-          <TeamSection />
-        </section>
+
         <section className="uvibes-contact-container">
           <div className="uvibes-contact-text">
             <h2 className="title-h2-white uvibes-title">

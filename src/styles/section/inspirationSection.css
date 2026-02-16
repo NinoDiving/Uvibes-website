@@ -1,3 +1,5 @@
+
+
 .inspiration-section-container {
   background: var(--gradientColor-card);
   display: flex;
@@ -13,7 +15,7 @@
   & h2 {
     font-size: var(--font-size-h2);
     font-family: var(--title-font);
-    text-align: left;
+    text-align: center;
     letter-spacing: var(--spacing-letter);
     line-height: 1;
     padding-bottom: calc(var(--spacing-ref) * 2);
@@ -25,12 +27,13 @@
   font-family: var(--text-font);
   line-height: 1.2;
   font-weight: 400;
+  text-align: center;
 }
 
 .inspiration-text-citation {
   padding-bottom: calc(var(--spacing-ref) * 2);
   font-style: italic;
-  text-align: justify;
+  text-align: center;
 }
 
 .inspiration-text-citation::before {
@@ -58,6 +61,14 @@
   font-size: calc(var(--font-size-text) * 0.8);
 }
 
+
+.cta-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: calc(var(--spacing-ref) * 2);
+}
+
 @media screen and (min-width: 768px) {
   .inspiration-section {
     display: flex;
@@ -69,7 +80,6 @@
 @media screen and (min-width: 1024px) {
   .inspiration-section {
     display: flex;
-    flex-direction: row;
     width: 100%;
   }
   .inspiration-section-text {

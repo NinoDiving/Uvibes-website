@@ -1,13 +1,16 @@
 import {
   BookOpen,
+  Calendar,
   CalendarClock,
   ChevronDown,
   ChevronUp,
   Compass,
-  Expand,
   Eye,
+  Gamepad2,
   GraduationCap,
   Lightbulb,
+  MessageSquare,
+  Sparkles,
 } from "lucide-react";
 import { useState } from "react";
 import "../../styles/funct/functOrganisation.css";
@@ -43,9 +46,29 @@ export default function FunctOrganisation() {
               Les thématiques abordées par votre collectif
             </p>
             {showThemes ? (
-              <ChevronUp size={24} style={{ color: "var(--mainColor)" }} />
+              <div
+                style={{
+                  display: "flex",
+                  justifyItems: "center",
+                  alignItems: "center",
+                  gap: "4px",
+                }}
+              >
+                <span className="text" style={{color: "var(--pinkUvibes)"}}>voir moins</span>
+                <ChevronUp size={24} style={{ color: "var(--mainColor)" }} />
+              </div>
             ) : (
-              <ChevronDown size={24} style={{ color: "var(--mainColor)" }} />
+              <div
+                style={{
+                  display: "flex",
+                  justifyItems: "center",
+                  alignItems: "center",
+                  gap: "4px",
+                }}
+              >
+                <span className="text" style={{color: "var(--pinkUvibes)"}}>voir plus</span>
+                <ChevronDown size={24} style={{ color: "var(--mainColor)" }} />
+              </div>
             )}
           </div>
 
@@ -53,12 +76,12 @@ export default function FunctOrganisation() {
             <div className="funct-orga-card-container funct-orga-card-container--visible">
               <OrgaCard
                 icone={
-                  <Expand size="50%" style={{ color: "var(--bckgColor)" }} />
+                  <Sparkles size="50%" style={{ color: "var(--bckgColor)" }} />
                 }
-                title="Des sujets grands angles"
+                title="Réflexions et loisirs"
                 description="Aspirations individuelles, séries TV, modèles de réussite, etc.."
-                content1="Quelle intrigue de film ou série t'a marqué ?"
-                content2="Qu'est ce qui t'inspire le plus dans ton quotidien ?"
+                content1="Quelle intrigue de film ou série vous a marqué.e ?"
+                content2="Qu'est ce qui vous inspire le plus dans votre quotidien ?"
               />
               <OrgaCard
                 icone={
@@ -67,19 +90,50 @@ export default function FunctOrganisation() {
                     style={{ color: "var(--bckgColor)" }}
                   />
                 }
-                title="Des sujets pédagogiques"
-                description="Management, innovation, conversation en langue étrangère, etc.."
-                content1="Have you ever innovated in your daily life ?"
-                content2="Comment vois-tu le management du futur ?"
+                title="Domaines d'expertise et de formation"
+                description="Réflexions autour de sujets professionnels et/ou pédagogiques"
+                content1="Comment vois-tu le management du futur ?"
+                content2="Have you ever innovated in your daily life ?"
               />
+
               <OrgaCard
                 icone={
                   <Lightbulb size="50%" style={{ color: "var(--bckgColor)" }} />
                 }
-                title="Des astuces et bons plans"
-                description="Partagez vos expériences et conseils pratiques"
-                content1="Quelles sont tes astuces pour mieux gérer ton budget ?"
-                content2="Comment gérer l'incertitude ?"
+                title="Astuces et bons plans"
+                description="Partage d'expériences et conseils pratiques"
+                content1="Des recettes de saisons ?"
+                content2="Vos conseils pour bien gérer son argent ?"
+              />
+              <OrgaCard
+                icone={
+                  <Calendar size="50%" style={{ color: "var(--bckgColor)" }} />
+                }
+                title="Evénements et actualités"
+                description="Octobre rose, cultures locales, Tour de France, etc."
+                content1="L'aspect le plus impressionnant du Tour de France ?"
+                content2="La tradition préférée de votre territoire ?"
+              />
+              <OrgaCard
+                icone={
+                  <Gamepad2 size="50%" style={{ color: "var(--bckgColor)" }} />
+                }
+                title="Jeux et mises en situation"
+                description="Participez à des challenges en équipe et/ou glissez-vous dans un rôle"
+                content1="Trouvez six métiers commençant par la lettre M"
+                content2="Inventez une histoire en alternant une phrase chacun"
+              />
+              <OrgaCard
+                icone={
+                  <MessageSquare
+                    size="50%"
+                    style={{ color: "var(--bckgColor)" }}
+                  />
+                }
+                title="Débats"
+                description="Mettre en commun différents points de vue"
+                content1="Bienfaits et limites du progrès"
+                content2="Influenceurs : stars ou imposteurs ?"
               />
             </div>
           )}
@@ -94,7 +148,7 @@ export default function FunctOrganisation() {
               />
             </div>
             <p className="title-text-orange">
-              Le moment et la durée d&apos;utilisation de Uvibes
+              Le moment et la durée des expériences intéractives
             </p>
           </div>
         </div>
