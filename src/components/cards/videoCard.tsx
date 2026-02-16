@@ -3,12 +3,10 @@ import Resize from "@/services/resize/resize";
 export default function VideoCard({
   videoSrcDdesktop,
   videoSrcMobile,
-  width,
   title,
 }: {
   videoSrcDdesktop: string | MediaSource;
   videoSrcMobile: string | MediaSource;
-  width: number;
   title?: string;
 }) {
   const { isMobile } = Resize();
@@ -19,6 +17,9 @@ export default function VideoCard({
         paddingBottom: 100,
         width: "100%",
         textAlign: "center",
+        paddingLeft: 20,
+        paddingRight: 20,
+        boxSizing: "border-box",
       }}
     >
       <h2
@@ -33,8 +34,10 @@ export default function VideoCard({
         autoPlay
         loop
         playsInline
-        width={width}
         style={{
+          width: "100%",
+          maxWidth: isMobile ? "400px" : "1200px",
+          justifySelf: "center",
           marginBottom: 40,
           borderRadius: 8,
           boxShadow: "0px 0px 0 18px rgba(0, 177, 221, 0.46)",
