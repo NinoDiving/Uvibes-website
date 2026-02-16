@@ -13,7 +13,6 @@ import { PartnerCarousel } from "@/components/carousel/PartnerCarousel";
 import InspirationSection from "@/components/section/inspirationSection";
 import WhyUvibes from "@/components/section/WhyUvibes";
 import Testimony from "@/components/testimony/testimony";
-import Resize from "@/services/resize/resize";
 import mockupHome from "../../public/images/mochupHome.png";
 import { BenefitsHomeSection } from "../components/section/BenefitsHomeSection";
 
@@ -23,10 +22,9 @@ import { useEffect, useState } from "react";
 
 
 export default function Home() {
-  const { isMobile } = Resize();
   const [heroContent, setHeroContent] = useState({
     title: "(Re)Donnez vie à votre collectif",
-    description: "Progrès et mieux-être réunis grâce à l’innovation socio-digitale",
+    description: "Progrès et mieux-être réunis grâce à l'innovation socio-digitale",
   });
 
   useEffect(() => {
@@ -61,7 +59,6 @@ export default function Home() {
         title="Bien-être collectif : elles y trouvent de la bonne humeur"
         videoSrcDdesktop={"/videos/Lisa-desktop.mp4"}
         videoSrcMobile={"/videos/Lisa-mobile.mp4"}
-        width={isMobile ? 300 : 1200}
       />
       <PartnerCarousel />
 
@@ -69,28 +66,24 @@ export default function Home() {
         title="Développement professionnel : ils partagent leurs points de vue"
         videoSrcDdesktop={"/videos/Pierre-desktop.mp4"}
         videoSrcMobile={"/videos/Pierre-mobile.mp4"}
-        width={isMobile ? 300 : 1200}
       />
       <InspirationSection />
       <VideoCard
         title="Bien-être collectif : ils créent du lien"
         videoSrcDdesktop={"/videos/Colette-desktop.mp4"}
         videoSrcMobile={"/videos/Colette-mobile.mp4"}
-        width={isMobile ? 300 : 1200}
       />
       <Testimony />
       <VideoCard
         title="Outil pédagogique : ils y trouvent de nouvelles idées"
         videoSrcDdesktop={"/videos/Delphine-desktop.mp4"}
         videoSrcMobile={"/videos/Delphine-mobile.mp4"}
-        width={isMobile ? 300 : 1200}
       />
       <FunctSection />
       <VideoCard
         title="Développement professionnel : ils élargissent leurs horizons"
         videoSrcDdesktop={"/videos/Nadine-desktop.mp4"}
         videoSrcMobile={"/videos/Nadine-mobile.mp4"}
-        width={isMobile ? 300 : 1200}
       />
 
 
@@ -99,10 +92,9 @@ export default function Home() {
       <FeaturedArticles />
 
       <VideoCard
-        title="Outil pédagogique : ils se nourrissent d’expériences"
+        title="Outil pédagogique : ils se nourrissent d'expériences"
         videoSrcDdesktop={"/videos/arjun-desktop.mp4"}
         videoSrcMobile={"/videos/arjun-mobile.mp4"}
-        width={isMobile ? 300 : 1200}
       />
 
       <FloatingMenu />
